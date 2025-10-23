@@ -1,0 +1,176 @@
+
+export interface PersonalDetailsData {
+    photo: File | null | string;
+    name: string;
+    department: string;
+    specialization: string;
+    gender: 'Male' | 'Female' | '';
+    dob: string;
+    birthPlace: string;
+    fatherName: string;
+    motherName: string;
+    nationality: string;
+    religion: string;
+    caste: 'SC' | 'ST' | 'BC' | 'OC' | 'Minority' | '';
+    subCaste: string;
+    casteCertificate: File | null | string;
+    phCategory: 'None' | 'PH-HH' | 'PH-OH' | 'PH-VH' | '';
+    phCertificate: File | null | string;
+    presentPost: string;
+    address: string;
+    mobile: string;
+    email: string;
+    pan: string;
+    aadhar: string;
+}
+
+export interface QualificationsData {
+    net: boolean;
+    netYear: string;
+    slet: boolean;
+    sletYear: string;
+    apset: boolean;
+    apsetYear: string;
+    other: boolean;
+    otherText: string;
+    phdAwardDate: string;
+    researchArea: string;
+    postDocExperience: string;
+    mphilDate: string;
+}
+
+export interface AcademicRecord {
+    id: number;
+    course: string;
+    subject: string;
+    year: string;
+    marks: string;
+    division: string;
+    university: string;
+}
+
+export interface Book {
+    id: number;
+    title: string;
+    year: string;
+    type: 'Indian' | 'Foreign' | '';
+    issn: string;
+    impactFactor: string;
+}
+
+export interface ConferencePaper {
+    id: number;
+    title: string;
+    conference: string;
+    organizer: string;
+    year: string;
+    type: 'Indian' | 'Foreign' | '';
+}
+
+export interface Publication {
+    id: number;
+    name: string;
+    year: string;
+    type: 'Indian' | 'Foreign' | '';
+    ugcSlNo: string;
+    issn: string;
+    impactFactor: string;
+}
+
+export interface TeachingExperienceRecord {
+    id: number;
+    university: string;
+    designation: string;
+    from: string;
+    to: string;
+}
+
+export interface ResearchPublicationsData {
+    researchPapers: 'Refereed Journal' | 'Reputed Journal' | '';
+    awardsReceived: string;
+    fellowships: ('International' | 'State/University')[];
+    subjectBooks: 'State' | 'National' | '';
+    chaptersInBooks: 'Indian' | 'Foreign' | '';
+    books: Book[];
+    conferencePapers: ConferencePaper[];
+    publications: Publication[];
+}
+
+export interface FileUploadsData {
+    certificates: File[];
+    publications: File[];
+}
+
+export interface DeclarationData {
+    agreed: boolean;
+}
+
+export interface ApplicationData {
+    personalDetails: PersonalDetailsData;
+    qualifications: QualificationsData;
+    academicCareer: AcademicRecord[];
+    researchPublications: ResearchPublicationsData;
+    teachingExperience: TeachingExperienceRecord[];
+    fileUploads: FileUploadsData;
+    declaration: DeclarationData;
+}
+
+export const initialFormData: ApplicationData = {
+    personalDetails: {
+        photo: null,
+        name: '',
+        department: '',
+        specialization: '',
+        gender: '',
+        dob: '',
+        birthPlace: '',
+        fatherName: '',
+        motherName: '',
+        nationality: '',
+        religion: '',
+        caste: '',
+        subCaste: '',
+        casteCertificate: null,
+        phCategory: '',
+        phCertificate: null,
+        presentPost: '',
+        address: '',
+        mobile: '',
+        email: '',
+        pan: '',
+        aadhar: '',
+    },
+    qualifications: {
+        net: false,
+        netYear: '',
+        slet: false,
+        sletYear: '',
+        apset: false,
+        apsetYear: '',
+        other: false,
+        otherText: '',
+        phdAwardDate: '',
+        researchArea: '',
+        postDocExperience: '',
+        mphilDate: '',
+    },
+    academicCareer: [],
+    researchPublications: {
+        researchPapers: '',
+        awardsReceived: '',
+        fellowships: [],
+        subjectBooks: '',
+        chaptersInBooks: '',
+        books: [],
+        conferencePapers: [],
+        publications: [],
+    },
+    teachingExperience: [],
+    fileUploads: {
+        certificates: [],
+        publications: [],
+    },
+    declaration: {
+        agreed: false,
+    },
+};
