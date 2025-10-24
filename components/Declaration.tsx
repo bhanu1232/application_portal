@@ -35,7 +35,7 @@ export const Declaration: React.FC<DeclarationProps> = ({ data, onChange, errors
                     </div>
                     <div className="ml-3 text-sm">
                         <label htmlFor="agreed" className="font-medium text-gray-700">
-                            24. I Agree <span className="text-red-500">*</span>
+                            I Agree <span className="text-red-500">*</span>
                         </label>
                          {errors.agreed && <p className="mt-1 text-sm text-red-600">{errors.agreed}</p>}
                     </div>

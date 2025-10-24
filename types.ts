@@ -86,11 +86,20 @@ export interface TeachingExperienceRecord {
 }
 
 export interface ResearchPublicationsData {
-    researchPapers: 'Refereed Journal' | 'Reputed Journal' | '';
+    refereedJournalCount: string;
+    reputedJournalCount: string;
+    indianBookCount: string;
+    foreignBookCount: string;
+    subjectBooksState: string;
+    subjectBooksNational: string;
+    chaptersInBooksIndian: string;
+    chaptersInBooksForeign: string;
+    fellowshipInternational: string;
+    fellowshipAcademic: string;
+    fellowshipAssociations: string;
+    awardStateUniversityAcademic: string;
+    awardStateUniversityAssociations: string;
     awardsReceived: string;
-    fellowships: ('International' | 'State/University')[];
-    subjectBooks: 'State' | 'National' | '';
-    chaptersInBooks: 'Indian' | 'Foreign' | '';
     books: Book[];
     conferencePapers: ConferencePaper[];
     publications: Publication[];
@@ -156,11 +165,20 @@ export const initialFormData: ApplicationData = {
     },
     academicCareer: [],
     researchPublications: {
-        researchPapers: '',
+        refereedJournalCount: '',
+        reputedJournalCount: '',
+        indianBookCount: '',
+        foreignBookCount: '',
+        subjectBooksState: '',
+        subjectBooksNational: '',
+        chaptersInBooksIndian: '',
+        chaptersInBooksForeign: '',
+        fellowshipInternational: '',
+        fellowshipAcademic: '',
+        fellowshipAssociations: '',
+        awardStateUniversityAcademic: '',
+        awardStateUniversityAssociations: '',
         awardsReceived: '',
-        fellowships: [],
-        subjectBooks: '',
-        chaptersInBooks: '',
         books: [],
         conferencePapers: [],
         publications: [],

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FileUploadsData } from '../types';
 import { FormSection } from './FormSection';
@@ -43,13 +42,13 @@ export const FileUploads: React.FC<FileUploadsProps> = ({ data, onChange }) => {
     return (
         <FormSection title="File Uploads">
             <FileInput 
-                label="22. Attested Copies of Certificates" 
+                label="Attested Copies of Certificates" 
                 name="certificates"
                 files={data.certificates}
                 onFileChange={handleFileChange}
             />
             <FileInput 
-                label="23. Reprints of Research Publications" 
+                label="Reprints of Research Publications" 
                 name="publications"
                 files={data.publications}
                 onFileChange={handleFileChange}

@@ -33,22 +33,24 @@ export const TeachingExperience: React.FC<TeachingExperienceProps> = ({ data, on
 
     // FIX: Add explicit Column[] type to fix type inference issue.
     const columns: Column[] = [
-        { header: 'Name of the University / College', accessor: 'university' },
-        { header: 'Designation', accessor: 'designation' },
-        { header: 'From', accessor: 'from', type: 'date' },
-        { header: 'To', accessor: 'to', type: 'date' },
+        { header: 'Name of the University / College', accessor: 'university', width: '40%' },
+        { header: 'Designation', accessor: 'designation', width: '30%' },
+        { header: 'From', accessor: 'from', type: 'date', width: '15%' },
+        { header: 'To', accessor: 'to', type: 'date', width: '15%' },
     ];
 
     return (
         <FormSection title="Teaching Experience">
-            <DynamicTable
-                title="21. Experience Details"
-                data={data}
-                columns={columns}
-                onAdd={handleAdd}
-                onRemove={handleRemove}
-                onChange={handleChange}
-            />
+            <div className="md:col-span-3">
+                <DynamicTable
+                    title="25. Experience Details"
+                    data={data}
+                    columns={columns}
+                    onAdd={handleAdd}
+                    onRemove={handleRemove}
+                    onChange={handleChange}
+                />
+            </div>
         </FormSection>
     );
 };
