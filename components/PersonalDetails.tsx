@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { PersonalDetailsData } from '../types';
 import { FormSection } from './FormSection';
@@ -11,6 +12,7 @@ interface PersonalDetailsProps {
 
 export const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onChange, errors }) => {
     const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+    const [signaturePreview, setSignaturePreview] = useState<string | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -22,28 +24,46 @@ export const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onChange
         if (files && files[0]) {
             const file = files[0];
             onChange('personalDetails', name, file);
-            if (name === 'photo') {
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                    setPhotoPreview(reader.result as string);
-                };
-                reader.readAsDataURL(file);
-            }
+            
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const result = reader.result as string;
+                if (name === 'photo') {
+                    setPhotoPreview(result);
+                } else if (name === 'signature') {
+                    setSignaturePreview(result);
+                }
+            };
+            reader.readAsDataURL(file);
         }
     };
     
     return (
         <FormSection title="Personal Details">
             <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-gray-700">Upload Photo <span className="text-red-500">*</span></label>
+                <label className="block text-base font-medium text-gray-700">Upload Photo <span className="text-red-500">*</span></label>
                 <div className="mt-1 flex items-center">
-                    <span className="inline-block h-24 w-24 rounded-md overflow-hidden bg-gray-100">
+                    <span className="inline-block h-24 w-24 rounded-md overflow-hidden bg-gray-100 border border-gray-200">
                         {photoPreview ? <img src={photoPreview} alt="Photo preview" className="h-full w-full object-cover" /> : <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M24 20.993V24H0v-2.997A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" /></svg>}
                     </span>
-                    <input type="file" name="photo" onChange={handleFileChange} accept="image/*" className="ml-5 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
+                    <input type="file" name="photo" onChange={handleFileChange} accept="image/*" className="ml-5 block w-full text-base text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-base file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
                 </div>
-                 {errors.photo && <p className="mt-1 text-sm text-red-600">{errors.photo}</p>}
+                 {errors.photo && <p className="mt-1 text-base text-red-600">{errors.photo}</p>}
             </div>
+
+            <div className="md:col-span-1">
+                <label className="block text-base font-medium text-gray-700">Upload Signature <span className="text-red-500">*</span></label>
+                <div className="mt-1 flex items-center">
+                    <span className="inline-block h-24 w-24 rounded-md overflow-hidden bg-gray-100 border border-gray-200">
+                        {signaturePreview ? <img src={signaturePreview} alt="Signature preview" className="h-full w-full object-contain p-2" /> : <div className="h-full w-full flex items-center justify-center text-gray-400 text-sm p-2 text-center">Signature</div>}
+                    </span>
+                    <input type="file" name="signature" onChange={handleFileChange} accept="image/*" className="ml-5 block w-full text-base text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-base file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
+                </div>
+                 {errors.signature && <p className="mt-1 text-base text-red-600">{errors.signature}</p>}
+            </div>
+            
+            <div className="hidden lg:block lg:col-span-1"></div>
+
             <InputField label="1. Name in Full" id="name" value={data.name} onChange={handleChange} required error={errors.name} className="md:col-span-2" />
             <InputField label="2. Department Applied For" id="department" value={data.department} onChange={handleChange} required error={errors.department} />
             <InputField label="3. Specify Specialization" id="specialization" value={data.specialization} onChange={handleChange} />
@@ -71,8 +91,8 @@ export const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onChange
             )}
             {['SC', 'ST', 'BC'].includes(data.caste) && (
                 <div>
-                    <label className="block text-sm font-medium text-gray-700">Caste Certificate</label>
-                    <input type="file" name="casteCertificate" onChange={handleFileChange} className="mt-1 block w-full text-sm text-gray-900" />
+                    <label className="block text-base font-medium text-gray-700">Caste Certificate</label>
+                    <input type="file" name="casteCertificate" onChange={handleFileChange} className="mt-1 block w-full text-base text-gray-900" />
                 </div>
             )}
              <InputField label="12. PH Category" id="phCategory" type="select" value={data.phCategory} onChange={handleChange}>
@@ -83,8 +103,8 @@ export const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onChange
             </InputField>
             {data.phCategory !== 'None' && data.phCategory !== '' && (
                  <div>
-                    <label className="block text-sm font-medium text-gray-700">PH Medical Certificate</label>
-                    <input type="file" name="phCertificate" onChange={handleFileChange} className="mt-1 block w-full text-sm text-gray-900" />
+                    <label className="block text-base font-medium text-gray-700">PH Medical Certificate</label>
+                    <input type="file" name="phCertificate" onChange={handleFileChange} className="mt-1 block w-full text-base text-gray-900" />
                 </div>
             )}
             <InputField label="13. Present Post Held" id="presentPost" value={data.presentPost} onChange={handleChange} />

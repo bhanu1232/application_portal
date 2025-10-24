@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FileUploadsData } from '../types';
 import { FormSection } from './FormSection';
@@ -17,15 +18,15 @@ const FileInput: React.FC<{ label: string; name: string; files: File[]; onFileCh
 
     return (
         <div className="md:col-span-3">
-            <label className="block text-sm font-medium text-gray-700">{label}</label>
+            <label className="block text-base font-medium text-gray-700">{label}</label>
             <input 
                 type="file" 
                 multiple 
                 onChange={handleFileChange} 
-                className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                className="mt-2 block w-full text-base text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-base file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
             />
             {files.length > 0 && (
-                <ul className="mt-2 list-disc list-inside text-sm text-gray-600">
+                <ul className="mt-3 list-disc list-inside text-base text-gray-600">
                     {files.map((file, index) => <li key={index}>{file.name}</li>)}
                 </ul>
             )}

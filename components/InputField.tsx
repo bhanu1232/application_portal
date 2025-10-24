@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface InputFieldProps {
@@ -13,7 +14,7 @@ interface InputFieldProps {
 }
 
 export const InputField: React.FC<InputFieldProps> = ({ label, id, type = 'text', value, onChange, required = false, error, children, className = 'md:col-span-1' }) => {
-    const baseClasses = "mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900";
+    const baseClasses = "mt-2 block w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-base placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900";
     const errorClasses = error ? 'border-red-500' : 'border-gray-300';
     
     const renderInput = () => {
@@ -29,11 +30,11 @@ export const InputField: React.FC<InputFieldProps> = ({ label, id, type = 'text'
 
     return (
         <div className={className}>
-            <label htmlFor={id} className={`block text-sm font-medium text-gray-700`}>
+            <label htmlFor={id} className={`block text-base font-medium text-gray-700`}>
                 {label} {required && <span className="text-red-500">*</span>}
             </label>
             {renderInput()}
-            {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
+            {error && <p className="mt-2 text-base text-red-600">{error}</p>}
         </div>
     );
 };

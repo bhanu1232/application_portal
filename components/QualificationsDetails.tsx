@@ -62,18 +62,18 @@ export const QualificationsDetails: React.FC<QualificationsProps> = ({
 
     return (
         <FormSection title="Qualifications & Academic Career">
-            <div className="md:col-span-3">
-                <label className="block text-sm font-medium text-gray-700 mb-2">19a. Qualifications</label>
+            <div className="md:col-span-3 ">
+                <label className="block text-base font-medium text-gray-700 mb-2">19a. Qualifications</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {/* Card for NET */}
-                    <div className="p-4 border rounded-lg bg-gray-50 transition-all duration-200">
+                    <div className="p-4 border rounded-lg bg-gray-50 transition-all duration-200 ">
                         <div className="flex items-center">
                             <input id="net" name="net" type="checkbox" checked={qualificationsData.net} onChange={handleCheckboxChange} className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"/>
-                            <label htmlFor="net" className="ml-3 block text-sm font-medium text-gray-700">NET</label>
+                            <label htmlFor="net" className="ml-3 block text-base font-medium text-gray-700">NET</label>
                         </div>
                         {qualificationsData.net && (
                             <div className="mt-2">
-                                <input type="text" name="netYear" value={qualificationsData.netYear} onChange={handleInputChange} placeholder="Year" className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900"/>
+                                <input type="text" name="netYear" value={qualificationsData.netYear} onChange={handleInputChange} placeholder="Year" className="block w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-base placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900"/>
                             </div>
                         )}
                     </div>
@@ -81,11 +81,11 @@ export const QualificationsDetails: React.FC<QualificationsProps> = ({
                     <div className="p-4 border rounded-lg bg-gray-50 transition-all duration-200">
                         <div className="flex items-center">
                             <input id="slet" name="slet" type="checkbox" checked={qualificationsData.slet} onChange={handleCheckboxChange} className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"/>
-                            <label htmlFor="slet" className="ml-3 block text-sm font-medium text-gray-700">SLET</label>
+                            <label htmlFor="slet" className="ml-3 block text-base font-medium text-gray-700">SLET</label>
                         </div>
                         {qualificationsData.slet && (
                              <div className="mt-2">
-                                <input type="text" name="sletYear" value={qualificationsData.sletYear} onChange={handleInputChange} placeholder="Year" className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900"/>
+                                <input type="text" name="sletYear" value={qualificationsData.sletYear} onChange={handleInputChange} placeholder="Year" className="block w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-base placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900"/>
                             </div>
                         )}
                     </div>
@@ -93,11 +93,11 @@ export const QualificationsDetails: React.FC<QualificationsProps> = ({
                     <div className="p-4 border rounded-lg bg-gray-50 transition-all duration-200">
                         <div className="flex items-center">
                             <input id="apset" name="apset" type="checkbox" checked={qualificationsData.apset} onChange={handleCheckboxChange} className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"/>
-                            <label htmlFor="apset" className="ml-3 block text-sm font-medium text-gray-700">APSET</label>
+                            <label htmlFor="apset" className="ml-3 block text-base font-medium text-gray-700">APSET</label>
                         </div>
                         {qualificationsData.apset && (
                             <div className="mt-2">
-                                <input type="text" name="apsetYear" value={qualificationsData.apsetYear} onChange={handleInputChange} placeholder="Year" className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900"/>
+                                <input type="text" name="apsetYear" value={qualificationsData.apsetYear} onChange={handleInputChange} placeholder="Year" className="block w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-base placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900"/>
                             </div>
                         )}
                     </div>
@@ -105,11 +105,11 @@ export const QualificationsDetails: React.FC<QualificationsProps> = ({
                     <div className="p-4 border rounded-lg bg-gray-50 transition-all duration-200">
                         <div className="flex items-center">
                             <input id="other" name="other" type="checkbox" checked={qualificationsData.other} onChange={handleCheckboxChange} className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"/>
-                            <label htmlFor="other" className="ml-3 block text-sm font-medium text-gray-700">Other</label>
+                            <label htmlFor="other" className="ml-3 block text-base font-medium text-gray-700">Other</label>
                         </div>
                         {qualificationsData.other && (
                             <div className="mt-2">
-                                <input type="text" name="otherText" value={qualificationsData.otherText} onChange={handleInputChange} placeholder="Specify" className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900"/>
+                                <input type="text" name="otherText" value={qualificationsData.otherText} onChange={handleInputChange} placeholder="Specify" className="block w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-base placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900"/>
                             </div>
                         )}
                     </div>

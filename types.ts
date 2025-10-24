@@ -1,6 +1,7 @@
 
 export interface PersonalDetailsData {
     photo: File | null | string;
+    signature: File | null | string;
     name: string;
     department: string;
     specialization: string;
@@ -105,6 +106,7 @@ export interface ResearchPublicationsData {
     publications: Publication[];
 }
 
+// FIX: Add FileUploadsData interface to resolve import error in components/FileUploads.tsx.
 export interface FileUploadsData {
     certificates: File[];
     publications: File[];
@@ -120,13 +122,13 @@ export interface ApplicationData {
     academicCareer: AcademicRecord[];
     researchPublications: ResearchPublicationsData;
     teachingExperience: TeachingExperienceRecord[];
-    fileUploads: FileUploadsData;
     declaration: DeclarationData;
 }
 
 export const initialFormData: ApplicationData = {
     personalDetails: {
         photo: null,
+        signature: null,
         name: '',
         department: '',
         specialization: '',
@@ -184,10 +186,6 @@ export const initialFormData: ApplicationData = {
         publications: [],
     },
     teachingExperience: [],
-    fileUploads: {
-        certificates: [],
-        publications: [],
-    },
     declaration: {
         agreed: false,
     },
